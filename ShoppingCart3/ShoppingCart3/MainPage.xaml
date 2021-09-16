@@ -1,0 +1,66 @@
+﻿<Page
+    x:Class="ShoppingCart3.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShoppingCart3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height=".5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding InventoryWindow}" SelectedItem="{Binding Path=SelectedProduct, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <!--<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Name}" Click="Button_Click"></Button>-->
+                        <TextBlock Text="{Binding DisplayInventory, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding CartWindow}" SelectedItem="{Binding Path=SelectedProductC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <!--<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Name}" Click="Button_Click"></Button>-->
+                        <TextBlock Text="{Binding DisplayCart, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Previous" Click="PreviousInventory"></Button> 
+            <Button Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Next" Click="NextInventory"></Button>
+            <Button Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Previous" Click="PreviousCart"></Button>
+            <Button Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Next" Click="NextCart"></Button>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="375*"/>
+                <ColumnDefinition Width="254*"/>
+                <ColumnDefinition Width="121*"/>
+                <ColumnDefinition Width="375*"/>
+                <ColumnDefinition Width="375*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Add To Cart" Click="AddToCart"></Button>
+            <Button Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Remove From Cart" Click="RemoveFromCart" Grid.ColumnSpan="2"></Button>
+            <Button Grid.Column="3" Content="Checkout" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Checkout"/>
+            <TextBlock Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding ReceiptDisplay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        </Grid>
+    </Grid>
+</Page>

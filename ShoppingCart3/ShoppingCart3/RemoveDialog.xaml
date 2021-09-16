@@ -1,0 +1,23 @@
+﻿<ContentDialog
+    x:Class="ShoppingCart3.Dialogs.RemoveDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShoppingCart3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Remove From Cart"
+    PrimaryButtonText="Remove"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{Binding RemoveDialogText}"></TextBlock>
+        <TextBox x:Name="AmountRTextBox" Grid.Row="1" PlaceholderText="Amount" Text=""/>
+    </Grid>
+</ContentDialog>
